@@ -1,0 +1,13 @@
+app:
+  build: .
+  links:
+    - drupal
+    - mariadb
+  ports:
+    - 8080:80
+
+drupal:
+  image: drupal:8.0.1
+
+mariadb:
+  image: mariadb
