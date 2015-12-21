@@ -4,10 +4,18 @@ app:
     - mariadb:db
   ports:
     - 8080:80
-  env_file:
-    - ./common.env
+  environment:
+    - DRUPAL_VERSION=8.0.1
+    - DRUPAL_MD5=423cc4d28da066d099986ac0844f6abb
 
 mariadb:
   image: mariadb
-  env_file:
-    - ./common.env
+  environment:
+    - MYSQL_ROOT_PASSWORD=admin
+    - MYSQL_DATABASE=drupal8
+    - MYSQL_USER=drupal8
+    - MYSQL_PASSWORD=drupal8
+    - MARIADB_MAJOR=10.0
+    - MARIADB_VERSION=10.0.22+maria-1~jessie
+  expose:
+    - 3306

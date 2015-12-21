@@ -1,0 +1,13 @@
+#!/bin/bash
+# Setup Docker environment for Drupal
+# Copyright (C) 2015 Minca Daniel Andrei - All Rights Reserved
+# Permission to copy and modify is granted under the GPL V2 license
+
+# stop and remove images
+refresh() {
+  docker stop `docker ps -aq`
+
+  docker rm `docker ps -aq`
+}
+
+"$@"
