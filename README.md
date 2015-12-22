@@ -35,8 +35,4 @@ $ chmod 444 sites/default/settings.php
 
 # License
 Licensed under the famous [MIT License](http://opensource.org/licenses/MIT)
-```
-
-# License
-Licensed under the famous [MIT License](http://opensource.org/licenses/MIT)
 Copyright (c) Minca Daniel Andrei (http://completit.com)
