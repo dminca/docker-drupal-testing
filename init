@@ -4,7 +4,7 @@
 # Permission to copy and modify is granted under the GPL V2 license
 
 # stop and remove images
-refresh() {
+rmv() {
   docker stop `docker ps -aq`
 
   docker rm `docker ps -aq`
