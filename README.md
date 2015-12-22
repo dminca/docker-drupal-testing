@@ -5,16 +5,6 @@ $ docker-compose up
 ```
 in the terminal
 
-# Project tree
-```
-drupal-dockerized
-├── db
-│   └── Dockerfile
-├── docker-compose.yml
-├── drupal
-│   └── Dockerfile
-├── README.md
-└── vars.env
-
-2 directories, 5 files
-```
+# License
+Licensed under the famous [MIT License](http://opensource.org/licenses/MIT)
+Copyright (c) Minca Daniel Andrei (http://completit.com)
