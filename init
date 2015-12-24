@@ -3,11 +3,43 @@
 # Copyright (C) 2015 Minca Daniel Andrei - All Rights Reserved
 # Permission to copy and modify is granted under the GPL V2 license
 
+DRUPAL_VERSION="8.0.1"
+APP_DIR="$HOME/drupal8/drupal"
+
+# --- helper functions ---
+breakline() {
+  TXT="----| ${1} |----"
+  TXT_LENGTH=$(expr length "${TXT}")
+  NL=$'\n'
+  echo -e "\e[96m${NL}${TXT}${NL}"
+  echo -e "\e[39m"
+}
+
+# --- main functions ---
 # stop and remove images
 rmv() {
+  breakline "Clearing containers"
+
   docker stop `docker ps -aq`
 
   docker rm `docker ps -aq`
+}
+
+pull() {
+  breakline "Pulling Drupal and creating dirs"
+
+  curl -fSL "http://ftp.drupal.org/files/projects/drupal-${DRUPAL_VERSION}.tar.gz" -o "$APP_DIR"/drupal.tar.gz
+
+  tar -xz --strip-components=1 -f "$APP_DIR"/drupal.tar.gz
+
+  chown -R www-data:www-data "$APP_DIR"/sites
+
+  rm -v "$APP_DIR"/drupal.tar.gz
+
+  cp -v "$APP_DIR"/sites/default/default.settings.php "$APP_DIR"/sites/default/settings.php
+
+  chmod a+w "$APP_DIR"/sites/default/settings.php
+  chmod a+w "$APP_DIR"/sites/default
 }
 
 "$@"
