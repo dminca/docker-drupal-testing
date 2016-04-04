@@ -28,18 +28,26 @@ rmv() {
 pull() {
   breakline "Pulling Drupal and creating dirs"
 
+  set -xv
+  if [[ ! -d "$APP_DIR" ]]; then
+    mkdir -vp "$APP_DIR"
+  fi
   curl -fSL "http://ftp.drupal.org/files/projects/drupal-${DRUPAL_VERSION}.tar.gz" -o "$APP_DIR"/drupal.tar.gz
 
-  tar -xz --strip-components=1 -f "$APP_DIR"/drupal.tar.gz
-
-  chown -R www-data:www-data "$APP_DIR"/sites
+  tar -xz --strip-components=1 -f "$APP_DIR"/drupal.tar.gz -C "$APP_DIR"/
 
   rm -v "$APP_DIR"/drupal.tar.gz
 
   cp -v "$APP_DIR"/sites/default/default.settings.php "$APP_DIR"/sites/default/settings.php
 
-  chmod a+w "$APP_DIR"/sites/default/settings.php
-  chmod a+w "$APP_DIR"/sites/default
+  sudo chown -R www-data:www-data "$APP_DIR"/sites
+  sudo chmod a+w "$APP_DIR"/sites/default/settings.php
+  sudo chmod a+w "$APP_DIR"/sites/default
+}
+
+clean ()
+{
+  rm -rf $APP_DIR
 }
 
 "$@"
