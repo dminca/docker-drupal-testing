@@ -28,7 +28,6 @@ rmv() {
 pull() {
   breakline "Pulling Drupal and creating dirs"
 
-  set -xv
   if [[ ! -d "$APP_DIR" ]]; then
     mkdir -vp "$APP_DIR"
   fi
