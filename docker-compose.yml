@@ -16,7 +16,7 @@ web:
     - "8000:80"
   volumes:
     # Drupal should live in the "drupal" directory
-    - ./drupal:/app
+    - ~/drupal8/drupal:/app
     - ./docker-compose.sh:/docker-compose.sh
   links:
     - mysql:mysql
