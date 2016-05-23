@@ -5,7 +5,7 @@ web:
   links:
     - psql:db
 
-db:
+psql:
   image: postgres:9.5
   environment:
     - POSTGRES_PASSWORD=drupal
