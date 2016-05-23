@@ -17,7 +17,8 @@ clean: clean-containers clean-images
 clean-containers:
 	docker rm -v $$(docker ps -aq -f status=exited)
 
+# ATTENTION! Removes all localhost images
 clean-images:
-	docker rmi $(docker)
+	docker rmi -f $(docker images -q)
 
 default: build

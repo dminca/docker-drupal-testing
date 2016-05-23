@@ -1,7 +1,15 @@
 web:
-  image: dockie/drupal-site-install
+  build: .
   ports:
-    - "8000:80"
-    - "2200:20"
-  volumes:
-    - ~/drupal:/var/www/html:rw dockie/drupal-site-install
+    - "80:80"
+  links:
+    - psql:db
+
+db:
+  image: postgres:9.5
+  environment:
+    - POSTGRES_PASSWORD=drupal
+    - POSTGRES_USER=drupal
+    - POSTGRES_DB=drupal
+  # ports:
+  #   - "5432:5432"
