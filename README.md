@@ -1,4 +1,4 @@
-# Docker dev env based on Docker
+# Drupal dev env based on Docker
 Easily start a Drupal website on localhost with Docker by issuing
 ```sh
 $ make up
