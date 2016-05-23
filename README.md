@@ -1,7 +1,7 @@
-# Dockerized infrastructure for Drupal
+# Docker dev env based on Docker
 Easily start a Drupal website on localhost with Docker by issuing
 ```sh
-$ docker-compose up
+$ make up
 ```
 in the terminal
 
