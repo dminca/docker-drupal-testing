@@ -1,3 +1,4 @@
+SHELL = /bin/sh
 PROJECT_NAME = dockerizeddrupal
 
 .PHONY: up down restart clean-containers clean-images clean
@@ -9,7 +10,7 @@ down:
 	docker-compose stop
 
 in:
-	docker exec -ti $(docker ps -f name="$PROJECT_NAME_web_1") /bin/bash
+	docker exec -ti $$(docker ps -qf name=$(PROJECT_NAME)_web_1) /bin/bash
 
 restart:
 	docker-compose restart
