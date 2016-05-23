@@ -1,7 +1,9 @@
 web:
-  build: .
+  image: php:7.0.6-apache
   ports:
     - "80:80"
+  volumes:
+    - ./app:/var/www/html
   links:
     - psql:db
 

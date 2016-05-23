@@ -1,13 +1,15 @@
-.PHONY: build up down restart clean-containers clean-images clean
+PROJECT_NAME = dockerizeddrupal
 
-build:
-	docker-compose build --force-rm
+.PHONY: up down restart clean-containers clean-images clean
 
 up:
 	docker-compose up
 
 down:
 	docker-compose stop
+
+in:
+	docker exec -ti $(docker ps -f name="$PROJECT_NAME_web_1") /bin/bash
 
 restart:
 	docker-compose restart
@@ -19,6 +21,7 @@ clean-containers:
 
 # ATTENTION! Removes all localhost images
 clean-images:
-	docker rmi -f $(docker images -q)
+	down
+	docker rmi -f `docker images -q`
 
-default: build
+default: up
