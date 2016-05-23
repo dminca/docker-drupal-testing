@@ -1,38 +1,27 @@
 # Drupal dev env based on Docker
-Easily start a Drupal website on localhost with Docker by issuing
-```sh
-$ make up
-```
-in the terminal
+> Drupal :droplet: dockerized development environment for the best PHP devs
 
-# Setting up the env
-- Pull the drupal archive and extract it in the `/drupal/` directory
-```sh
-$ curl -fSL "http://ftp.drupal.org/files/projects/drupal-${DRUPAL_VERSION}.tar.gz" -o drupal.tar.gz
-$ tar -xz --strip-components=1 -f drupal.tar.gz
-$ rm drupal.tar.gz
-$ chown -R www-data:www-data sites
-```
-- Create configuration file and grant permissions
-```sh
-$ cp sites/default/default.settings.php sites/default/settings.php
-$ chmod a+w sites/default/settings.php
-$ chmod a+w sites/default
-```
-- (optional) Post installation permission check
+## Running the project
+> More details comming **soon**
 
-> After the installation script has run, Drupal tries to set the permissions automatically to:
+## Project references:
+* [PHP + Apache official docker image][1]
+* [Docker compose official docs][2]
+* [Dockerfile official docs][3]
+* [Drupal system requirements - to be sure what to install][4]
+* [Apache and PHP on Docker - good medium article used for inspiration][5]
+* [Drupal installation step by step][6]
 
-> 555 (read-execute) [dr-xr-xr-x] for the sites/default folder.
-> and
-> 444 (read-only) [-r--r--r--] for the settings.php
+### License
+Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
 
-> If not, you will need to manually set them:
-```sh
-$ chmod 555 sites/default
-$ chmod 444 sites/default/settings.php
-```
+Made with :heart: for [drupal][7] developers.
 
-# License
-Licensed under the famous [MIT License](http://opensource.org/licenses/MIT)
-Copyright (c) Minca Daniel Andrei (http://completit.com)
+
+[1]: https://hub.docker.com/_/php/
+[2]: https://docs.docker.com/compose/compose-file
+[3]: https://docs.docker.com/engine/reference/builder
+[4]: https://www.drupal.org/requirements
+[5]: https://medium.com/dev-tricks/apache-and-php-on-docker-44faef716150#.l15osgxxs
+[6]: https://www.drupal.org/documentation/install/download
+[7]: https://www.drupal.org/
