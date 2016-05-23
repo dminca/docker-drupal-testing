@@ -11,6 +11,7 @@
 * [Drupal system requirements - to be sure what to install][4]
 * [Apache and PHP on Docker - good medium article used for inspiration][5]
 * [Drupal installation step by step][6]
+* [Mastering Git submodules - medium][8]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -25,3 +26,4 @@ Made with :heart: for [drupal][7] developers.
 [5]: https://medium.com/dev-tricks/apache-and-php-on-docker-44faef716150#.l15osgxxs
 [6]: https://www.drupal.org/documentation/install/download
 [7]: https://www.drupal.org/
+[8]: https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.p8ypfaftj
