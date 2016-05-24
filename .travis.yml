@@ -9,6 +9,7 @@ install:
 
 before_script:
   - cd ~/repo
+  - pwd
+  - ls -lsa
 
-script:
-  - make test
+script: make test
