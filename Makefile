@@ -4,7 +4,7 @@ DRUPAL_VERSION = 8.1.1
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
 
-.PHONY: build-drupal build up down restart clean-containers clean-images clean test
+.PHONY: build-drupal build up down restart clean-containers clean-images clean test-containers
 
 build:
 	docker-compose build
@@ -41,6 +41,6 @@ build-drupal:
 	chmod 755 $(DRUPAL_SITES)/files
 	sudo chown -R www-data:www-data app/sites
 
-test: build-drupal build up down restart clean
+test-containers: build-drupal build up down restart clean
 
 default: build
