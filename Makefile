@@ -43,4 +43,4 @@ build-drupal:
 
 test: build-drupal build up down restart clean
 
-default: build
+default: test

@@ -11,4 +11,4 @@ before_script:
   - cd ~/repo
 
 script:
-  - make test
+  - make
