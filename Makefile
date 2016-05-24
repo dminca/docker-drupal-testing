@@ -3,7 +3,10 @@ PROJECT_NAME = dockerizeddrupal
 DRUPAL_VERSION = 8.1.1
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 
-.PHONY: up down restart clean-containers clean-images clean
+.PHONY: build up down restart clean-containers clean-images clean
+
+build:
+	docker-compose build
 
 up:
 	docker-compose up
@@ -30,4 +33,4 @@ build-drupal:
 	tar -xvzf app/$(DRUPAL_SRCNAME).tar.gz -C app --strip-components 1
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 
-default: up
+default: build

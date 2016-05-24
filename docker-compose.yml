@@ -1,5 +1,5 @@
 web:
-  image: php:7.0.6-apache
+  build: .
   ports:
     - "80:80"
   volumes:
