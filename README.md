@@ -3,16 +3,16 @@
 
 ## Running the project
 
-1. First, Drupal must be pulled from the web and configured
+* First, Drupal must be pulled from the web and configured
 ```bash
 make build-drupal
 ```
-2. Build the Docker image
+* Build the Docker image
 ```bash
 make
 ```
 
-3. Spin up the containers
+* Spin up the containers
 > During this stage, the PostgreSQL image will be pulled
 ```bash
 make up
