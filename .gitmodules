@@ -1,4 +1,0 @@
-[submodule "app"]
-  path = app
-  url = git@github.com:drupal/drupal.git
-  branch = 8.1.x
