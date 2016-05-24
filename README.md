@@ -17,6 +17,7 @@
 * [OPCache problem solved][11]
 * [Enabling Apache modules in Dockerfile][12]
 * [Apache Dockerfile for inspiration][13]
+* [Docker inspect template magic][14]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -37,3 +38,4 @@ Made with :heart: for [drupal][7] developers.
 [11]: https://hub.docker.com/r/sinso/phpfpm-flow/~/dockerfile/
 [12]: http://khornberg.github.io/articles/enabling-apache-modules-indockerfile-php/
 [13]: https://github.com/voduytuan/docker-apache-php/blob/master/Dockerfile
+[14]: http://container-solutions.com/docker-inspect-template-magic/
