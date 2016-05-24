@@ -14,6 +14,9 @@
 * [Mastering Git submodules - medium][8]
 * [Drupal 7 with apache Dockerfile][9]
 * [php 7.0 - apache Dockerfile][10]
+* [OPCache problem solved][11]
+* [Enabling Apache modules in Dockerfile][12]
+* [Apache Dockerfile for inspiration][13]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -31,3 +34,6 @@ Made with :heart: for [drupal][7] developers.
 [8]: https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.p8ypfaftj
 [9]: https://github.com/docker-library/drupal/blob/master/7/apache/Dockerfile
 [10]: https://github.com/docker-library/php/blob/master/7.0/apache/Dockerfile
+[11]: https://hub.docker.com/r/sinso/phpfpm-flow/~/dockerfile/
+[12]: http://khornberg.github.io/articles/enabling-apache-modules-indockerfile-php/
+[13]: https://github.com/voduytuan/docker-apache-php/blob/master/Dockerfile
