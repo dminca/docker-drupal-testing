@@ -1,6 +1,8 @@
 sudo: required
 language: bash
-services: docker
+services:
+  - docker
+  - docker-compose
 
 install:
   - git clone https://github.com/dminca/dockerized-drupal.git ~/repo
@@ -9,4 +11,4 @@ before_script:
   - cd ~/repo
 
 script:
-  - make test
+  - make
