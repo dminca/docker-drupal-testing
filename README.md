@@ -1,10 +1,45 @@
 # Drupal dev env based on Docker
-> Drupal :droplet: dockerized development environment for the best PHP devs
+> Run Drupal **8.1.1** from Docker containers
 
 ## Running the project
-> More details comming **soon**
 
-## Project references:
+1. First, Drupal must be pulled from the web and configured
+```bash
+make build-drupal
+```
+2. Build the Docker image
+```bash
+make
+```
+
+3. Spin up the containers
+> During this stage, the PostgreSQL image will be pulled
+```bash
+make up
+```
+:boom: And that's it, you got yourself a fully-functional Drupal website on 
+localhost without wasting time to install _Apache + PHP + Drupal_ on your machine.
+
+## During Drupal install
+At the **Set up database** step you need to add the **PostgreSQL container IPAddress**.
+```bash
+docker inspect -f '{{.NetworkSettings.IPAddress}}' dockerizeddrupal_psql_1
+```
+where `dockerizeddrupal_psql_1` is the **container name**
+
+## Other commands
+```bash
+make down     # stop containers
+
+make in       # enter the Drupal container
+
+make restart  # restart containers
+
+make clean    # remove containers and all local docker images
+```
+
+### Project references:
+> Sources that guided me throughout the development of this project
 * [PHP + Apache official docker image][1]
 * [Docker compose official docs][2]
 * [Dockerfile official docs][3]
