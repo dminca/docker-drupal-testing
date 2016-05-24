@@ -6,6 +6,6 @@ RUN apt-get update \
   && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
   && docker-php-ext-install gd pdo pdo_pgsql opcache
 
-CMD ['a2enmod', 'rewrite']
+RUN a2enmod rewrite
 
 EXPOSE 80
