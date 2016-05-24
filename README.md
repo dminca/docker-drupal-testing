@@ -12,6 +12,8 @@
 * [Apache and PHP on Docker - good medium article used for inspiration][5]
 * [Drupal installation step by step][6]
 * [Mastering Git submodules - medium][8]
+* [Drupal 7 with apache Dockerfile][9]
+* [php 7.0 - apache Dockerfile][10]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -27,3 +29,5 @@ Made with :heart: for [drupal][7] developers.
 [6]: https://www.drupal.org/documentation/install/download
 [7]: https://www.drupal.org/
 [8]: https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.p8ypfaftj
+[9]: https://github.com/docker-library/drupal/blob/master/7/apache/Dockerfile
+[10]: https://github.com/docker-library/php/blob/master/7.0/apache/Dockerfile
