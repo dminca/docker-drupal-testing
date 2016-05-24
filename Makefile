@@ -4,7 +4,7 @@ DRUPAL_VERSION = 8.1.1
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
 
-.PHONY: build up down restart clean-containers clean-images clean
+.PHONY: build-drupal build up down restart clean-containers clean-images clean test
 
 build:
 	docker-compose build
