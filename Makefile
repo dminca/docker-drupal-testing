@@ -41,6 +41,6 @@ build-drupal:
 	chmod 755 $(DRUPAL_SITES)/files
 	sudo chown -R www-data:www-data app/sites
 
-test-containers: build-drupal build up down restart clean
+test: build-drupal
 
 default: build
