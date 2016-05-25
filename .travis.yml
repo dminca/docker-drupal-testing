@@ -11,4 +11,4 @@ install:
 before_script:
   - cd ~/repo
 
-script: make test -d
+script: make test
