@@ -10,4 +10,4 @@ install:
 before_script:
   - cd ~/repo
 
-script: make test-containers
+script: make test
