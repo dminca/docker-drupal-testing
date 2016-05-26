@@ -1,0 +1,7 @@
+sudo: required
+language: bash
+services:
+  - docker
+  - docker-compose
+
+script: make test

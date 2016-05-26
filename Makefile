@@ -4,13 +4,13 @@ DRUPAL_VERSION = 8.1.1
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
 
-.PHONY: build up down restart clean-containers clean-images clean
+.PHONY: build-drupal build up down restart clean-containers clean-images clean test
 
 build:
 	docker-compose build
 
 up:
-	docker-compose up
+	docker-compose up -d
 
 down:
 	docker-compose stop
@@ -31,7 +31,7 @@ clean-images: down
 
 build-drupal:
 	wget http://ftp.drupal.org/files/projects/drupal-$(DRUPAL_VERSION).tar.gz -P app
-	tar -xvzf app/$(DRUPAL_SRCNAME).tar.gz -C app --strip-components 1
+	tar -xzf app/$(DRUPAL_SRCNAME).tar.gz -C app --strip-components 1
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 	cp $(DRUPAL_SITES)/default.settings.php $(DRUPAL_SITES)/settings.php
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
@@ -40,6 +40,9 @@ build-drupal:
 	mkdir $(DRUPAL_SITES)/files
 	chmod 755 $(DRUPAL_SITES)/files
 	sudo chown -R www-data:www-data app/sites
+	sudo chown www-data:www-data app/themes
+	sudo chown www-data:www-data app/modules
 
+test: build-drupal build up restart down clean
 
 default: build
