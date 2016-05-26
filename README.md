@@ -39,6 +39,15 @@ make restart  # restart containers
 make clean    # remove containers and all local docker images
 ```
 
+## Contributing
+Feel free to fork and contribute to this code. :)
+
+1. Fork the repo
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
 ### Project references:
 > Sources that guided me throughout the development of this project
 * [PHP + Apache official docker image][1]
