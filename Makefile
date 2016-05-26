@@ -31,7 +31,7 @@ clean-images: down
 
 build-drupal:
 	wget http://ftp.drupal.org/files/projects/drupal-$(DRUPAL_VERSION).tar.gz -P app
-	tar -xvzf app/$(DRUPAL_SRCNAME).tar.gz -C app --strip-components 1
+	tar -xzf app/$(DRUPAL_SRCNAME).tar.gz -C app --strip-components 1
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 	cp $(DRUPAL_SITES)/default.settings.php $(DRUPAL_SITES)/settings.php
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
