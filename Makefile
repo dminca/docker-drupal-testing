@@ -41,6 +41,7 @@ build-drupal:
 	chmod 755 $(DRUPAL_SITES)/files
 	sudo chown -R www-data:www-data app/sites
 	sudo chown www-data:www-data app/themes
+	sudo chown www-data:www-data app/modules
 
 test: build-drupal
 
