@@ -43,6 +43,6 @@ build-drupal:
 	sudo chown www-data:www-data app/themes
 	sudo chown www-data:www-data app/modules
 
-test: build-drupal build
+test: build-drupal build up restart down clean
 
 default: build
