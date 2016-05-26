@@ -4,11 +4,4 @@ services:
   - docker
   - docker-compose
 
-install:
-  - git clone https://github.com/dminca/dockerized-drupal.git ~/repo
-  - sudo apt-get install make --assume-yes
-
-before_script:
-  - cd ~/repo
-
 script: make test
