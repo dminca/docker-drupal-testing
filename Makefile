@@ -22,6 +22,7 @@ restart:
 	docker-compose restart
 
 clean: clean-containers clean-images
+	sudo rm -rf app
 
 clean-containers:
 	docker rm -v $$(docker ps -aq -f status=exited)
