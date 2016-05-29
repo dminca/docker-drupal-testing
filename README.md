@@ -28,6 +28,12 @@ docker inspect -f '{{.NetworkSettings.IPAddress}}' dockerizeddrupal_psql_1
 ```
 where `dockerizeddrupal_psql_1` is the **container name**
 
+or MySQL container IP Address:
+```bash
+docker inspect -f '{{.NetworkSettings.IPAddress}}' dockerizeddrupal_mysql_1
+```
+in case you're using MySQL.
+
 ## Other commands
 ```bash
 make down     # stop containers
@@ -63,6 +69,7 @@ Feel free to fork and contribute to this code. :)
 * [Enabling Apache modules in Dockerfile][12]
 * [Apache Dockerfile for inspiration][13]
 * [Docker inspect template magic][14]
+* [Official MySQL Docker image][15]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -84,3 +91,4 @@ Made with :heart: for [drupal][7] developers.
 [12]: http://khornberg.github.io/articles/enabling-apache-modules-indockerfile-php/
 [13]: https://github.com/voduytuan/docker-apache-php/blob/master/Dockerfile
 [14]: http://container-solutions.com/docker-inspect-template-magic/
+[15]: https://hub.docker.com/_/mysql/

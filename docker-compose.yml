@@ -5,13 +5,25 @@ web:
   volumes:
     - ./app:/var/www/html
   links:
-    - psql:db
+    - mysql
+    # - psql
 
-psql:
-  image: postgres:9.5
+mysql:
+  image: mysql:5.7
   environment:
-    - POSTGRES_PASSWORD=drupal
-    - POSTGRES_USER=drupal
-    - POSTGRES_DB=drupal
-  # ports:
-  #   - "5432:5432"
+    - MYSQL_ROOT_PASSWORD=drupal
+    - MYSQL_DATABASE=drupal
+    - MYSQL_USER=drupal
+    - MYSQL_PASSWORD=drupal
+    # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+  ports:
+    - "3306:3306"
+
+# psql:
+#   image: postgres:9.5
+#   environment:
+#     - POSTGRES_PASSWORD=drupal
+#     - POSTGRES_USER=drupal
+#     - POSTGRES_DB=drupal
+#   # ports:
+#   #   - "5432:5432"
