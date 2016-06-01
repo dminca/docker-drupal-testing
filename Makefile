@@ -22,7 +22,7 @@ restart:
 	docker-compose restart
 
 clean: clean-containers clean-images
-	rm -rf app
+	sudo rm -rf app
 
 clean-containers:
 	docker rm -v $$(docker ps -aq -f status=exited)
@@ -36,10 +36,13 @@ build-drupal:
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 	cp $(DRUPAL_SITES)/default.settings.php $(DRUPAL_SITES)/settings.php
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
-	chmod a+w $(DRUPAL_SITES)/settings.php $(DRUPAL_SITES)/services.yml
-	chmod a+w $(DRUPAL_SITES)
+	chmod 644 $(DRUPAL_SITES)/settings.php $(DRUPAL_SITES)/services.yml
+	chmod 755 $(DRUPAL_SITES)
 	mkdir $(DRUPAL_SITES)/files
-	chmod a+w $(DRUPAL_SITES)/files
+	chmod 755 $(DRUPAL_SITES)/files
+	sudo chown -R www-data:www-data app/sites
+	sudo chown www-data:www-data app/themes
+	sudo chown www-data:www-data app/modules
 
 test: build-drupal build up restart down clean
 
