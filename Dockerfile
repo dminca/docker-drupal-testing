@@ -1,6 +1,5 @@
 FROM php:7.0.6-apache
 MAINTAINER Minca Daniel Andrei <mandrei17@gmail.com>
-USER $USER
 RUN apt-get update -qq \
   && apt-get install -yqq libapache2-mod-auth-pgsql libpng12-dev libjpeg-dev libpq-dev \
   && rm -rf /var/lib/apt/lists/* \
