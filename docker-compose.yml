@@ -17,7 +17,7 @@ mysql:
     - MYSQL_PASSWORD=drupal
     # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
   ports:
-    - "3306:3306"
+    - "127.0.0.1:3306:3306"
 
 # psql:
 #   image: postgres:9.5
