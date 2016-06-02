@@ -1,22 +1,29 @@
 SHELL = /bin/sh
-PROJECT_NAME = dockerizeddrupal
+PROJECT_NAME = $$(printf '%s\n' "${PWD##*/}") 
 DRUPAL_VERSION = 8.1.2
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
+SERVER_USER = nginx
 
-.PHONY: build-drupal build up down restart clean-containers clean-images clean test
+.PHONY: build-drupal build start-detached up down wipe restart clean-containers clean-images clean test
+
+start-detached:
+	docker-compose up -d
 
 build:
 	docker-compose build
 
 up:
-	docker-compose up -d
+	docker-compose up
 
 down:
 	docker-compose stop
 
+wipe:
+	docker-compose down -v --remove-orphans
+
 in:
-	docker exec -ti $$(docker ps -qf name=$(PROJECT_NAME)_web_1) /bin/bash
+	docker exec -ti $$(docker ps -qf name=$$(PROJECT_NAME)_web_1) /bin/ash
 
 restart:
 	docker-compose restart
@@ -36,14 +43,10 @@ build-drupal:
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 	cp $(DRUPAL_SITES)/default.settings.php $(DRUPAL_SITES)/settings.php
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
-	chmod 644 $(DRUPAL_SITES)/settings.php $(DRUPAL_SITES)/services.yml
-	chmod 755 $(DRUPAL_SITES)
 	mkdir $(DRUPAL_SITES)/files
-	chmod 755 $(DRUPAL_SITES)/files
-	sudo chown -R www-data:www-data app/sites
-	sudo chown www-data:www-data app/themes
-	sudo chown www-data:www-data app/modules
+	chmod 777 $(DRUPAL_SITES)/files
+	chmod 777 $(DRUPAL_SITES)/settings.php
 
-test: build-drupal build up restart down clean
+test: build-drupal build start-detached restart down clean
 
 default: build
