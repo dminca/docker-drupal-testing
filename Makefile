@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 PROJECT_NAME = dockerizeddrupal
-DRUPAL_VERSION = 8.1.1
+DRUPAL_VERSION = 8.1.2
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
 
