@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/dminca/dockerized-drupal.svg?branch=master)](https://travis-ci.org/dminca/dockerized-drupal) [![](https://imagelayers.io/badge/completit/dockerized-drupal:latest.svg)](https://imagelayers.io/?images=completit/dockerized-drupal:latest 'Get your own badge on imagelayers.io')
 # Drupal dev env based on Docker
-> Run Drupal **8.1.1** from Docker containers
+> Run Drupal **8.1.2** from Docker containers
 
 ## Running the project
 
@@ -21,18 +21,18 @@ make up
 :boom: And that's it, you got yourself a fully-functional Drupal website on 
 localhost without wasting time to install _Apache + PHP + Drupal_ on your machine.
 
-## During Drupal install
-At the **Set up database** step you need to add the **PostgreSQL container IPAddress**.
-```bash
-docker inspect -f '{{.NetworkSettings.IPAddress}}' dockerizeddrupal_psql_1
-```
-where `dockerizeddrupal_psql_1` is the **container name**
+## Credentials
+The following credentials are used along the installation:
+* **DB_USERNAME:** `drupal`
+* **DB_PASSWORD:** `drupal`
+* **DB_DATABASE:** `drupal`
+* **DB_HOSTNAME:** `dockerizeddrupal_mysql_1` or `dockerizeddrupal_psql_1`
 
-or MySQL container IP Address:
-```bash
-docker inspect -f '{{.NetworkSettings.IPAddress}}' dockerizeddrupal_mysql_1
-```
-in case you're using MySQL.
+Choose the proper `DB_HOSTNAME` depending on which Database you use: MySQL or PostgreSQL.
+
+#### Note for DB_HOSTNAME
+In case there are problems with the host of the db, do `docker ps` and copy the NAME of
+the DB Docker container
 
 ## Other commands
 ```bash
