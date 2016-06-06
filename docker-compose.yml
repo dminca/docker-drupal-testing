@@ -1,9 +1,13 @@
 web:
+<<<<<<< 4a81b4165fbf29179b4037a9442eb89b50a0610a
   image: completit/dockerized-drupal:cli
+=======
+  build: ./docker
+>>>>>>> WIP enable rewrite_module
   ports:
     - "80:80"
   volumes:
-    - ./app:/var/www/html
+    - ./app:/var/www/localhost/htdocs
   links:
     - mysql
     # - psql

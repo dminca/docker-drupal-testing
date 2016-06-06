@@ -21,6 +21,7 @@ RUN	echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 		php7-pdo_mysql \
 		php7-pdo_pgsql \
 		php7-zip \
+    apache2 \
     php7-apache2 \
 
    && sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.ini \
@@ -31,4 +32,4 @@ RUN	echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
    && sed -i "s|;*cgi.fix_pathinfo=.*|cgi.fix_pathinfo= 0|i" /etc/php7/php.ini \
 
    && apk del tzdata \
-   && rm -rf /var/cache/apk/*
+   && rm -rf /var/cache/apk/* \
