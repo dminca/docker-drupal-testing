@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:edge
 
 MAINTAINER Minca Daniel Andrei <mandrei17@gmail.com>
 
@@ -27,17 +27,16 @@ ENV HTTPD_BZ2_URL https://www.apache.org/dist/httpd/httpd-$HTTPD_VERSION.tar.bz2
 RUN set -x \
 && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
 && apk update \
-&& apk upgrade \
 && apk add --update tzdata \
 && cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
 && echo "${TIMEZONE}" > /etc/timezone \
 	&& apk add --no-cache --update --virtual .build-deps \
-  php7-gd \
-  php7-opcache \
-  php7-pdo \
-  php7-pdo_mysql \
-  php7-pdo_pgsql \
-  php7-zip \
+    php7-gd \
+    php7-opcache \
+    php7-pdo \
+    php7-pdo_mysql \
+    php7-pdo_pgsql \
+    php7-zip \
 		apr-dev \
 		apr-util-dev \
 		curl \

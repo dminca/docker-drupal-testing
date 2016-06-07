@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/dminca/dockerized-drupal.svg?branch=master)](https://travis-ci.org/dminca/dockerized-drupal) [![](https://imagelayers.io/badge/completit/dockerized-drupal:latest.svg)](https://imagelayers.io/?images=completit/dockerized-drupal:latest 'Get your own badge on imagelayers.io') [![Join the chat at https://gitter.im/dminca/dockerized-drupal](https://badges.gitter.im/dminca/dockerized-drupal.svg)](https://gitter.im/dminca/dockerized-drupal)
+[![Build Status](https://travis-ci.org/dminca/dockerized-drupal.svg?branch=master)](https://travis-ci.org/dminca/dockerized-drupal)
 # Drupal dev env based on Docker
-> Run Drupal **8.1.2** from Docker containers
+> Run Drupal **8.1.1** from Docker containers
 
 ## Running the project
 
