@@ -1,5 +1,5 @@
 web:
-  image: completit/dockerized-drupal
+  image: completit/dockerized-drupal:cli
   ports:
     - "80:80"
   volumes:
