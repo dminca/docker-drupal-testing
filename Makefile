@@ -10,10 +10,10 @@ build:
 	docker-compose build
 
 up:
-	docker-compose up -d
+	docker-compose up
 
 down:
-	docker-compose stop
+	docker-compose down -v --remove-orphans
 
 in:
 	docker exec -ti $$(docker ps -qf name=$(PROJECT_NAME)_web_1) /bin/bash
