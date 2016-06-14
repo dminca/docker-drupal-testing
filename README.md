@@ -70,6 +70,7 @@ Feel free to fork and contribute to this code. :)
 * [Apache Dockerfile for inspiration][13]
 * [Docker inspect template magic][14]
 * [Official MySQL Docker image][15]
+* [Alpine httpd Dockerfile by ncopa][16]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -92,3 +93,4 @@ Made with :heart: for [drupal][7] developers.
 [13]: https://github.com/voduytuan/docker-apache-php/blob/master/Dockerfile
 [14]: http://container-solutions.com/docker-inspect-template-magic/
 [15]: https://hub.docker.com/_/mysql/
+[16]: https://github.com/ncopa/httpd/blob/d22ddf0c374fa749f683845342d258678895432a/2.4/alpine/Dockerfile
