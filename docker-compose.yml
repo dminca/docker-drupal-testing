@@ -7,7 +7,6 @@ web:
   ports:
     - "80:80"
     - "443:443"
-  working_dir: /var/www/html
   # links:
   #   - psql
     # - mysql
