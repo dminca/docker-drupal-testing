@@ -6,13 +6,12 @@ web:
 >>>>>>> WIP enable rewrite_module
   ports:
     - "80:80"
-  volumes:
-    - ./app:/var/www/localhost/htdocs
-  working_dir: /var/www/localhost/htdocs
-  command: httpd-foreground
+    - "443:443"
+  working_dir: /var/www/html
+  command: supervisord
   # links:
+  #   - psql
     # - mysql
-    # - psql
 
 # mysql:
 #   image: mysql:5.7
