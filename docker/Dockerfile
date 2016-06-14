@@ -6,9 +6,14 @@ MAINTAINER Minca Daniel Andrei <mandrei17@gmail.com>
 RUN apk update && apk upgrade \
   && apk add ca-certificates bash \
   && apk add --update \
-    supervisor nginx php php-fpm \
-    php-zlib php-mcrypt php-openssl \
-    php-gd php-xml php-json \ 
+    supervisor \
+    nginx \
+    php7 \
+    php7-gd \
+    php7-opcache \
+    php7-pdo \
+    php7-pdo_mysql \
+    php7-pdo_pgsql \
   && rm -rf /var/cache/apk/* \
   && mkdir /tmp/nginx \
   && mkdir -p /var/www/html \
