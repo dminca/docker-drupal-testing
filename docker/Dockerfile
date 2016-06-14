@@ -2,89 +2,31 @@ FROM alpine:edge
 
 MAINTAINER Minca Daniel Andrei <mandrei17@gmail.com>
 
-ENV TIMEZONE            Europe/Bucharest
-ENV PHP_MEMORY_LIMIT    512M
-ENV MAX_UPLOAD          50M
-ENV PHP_MAX_FILE_UPLOAD 200
-ENV PHP_MAX_POST        100M
 
-# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN addgroup -g 82 -S www-data \
-	&& adduser -u 82 -D -S -G www-data www-data
+RUN apk update && apk upgrade \
+  && apk add ca-certificates bash \
+  && apk add --update \
+    supervisor nginx php php-fpm \
+    php-zlib php-mcrypt php-openssl \
+    php-gd php-xml php-json \ 
+  && rm -rf /var/cache/apk/* \
+  && mkdir /tmp/nginx \
+  && mkdir -p /var/www/html \
+  && echo "<?php phpinfo(); ?>" > /var/www/html/index.php \
+  && chown -R nginx:nginx /var/www/html \
+  && sed -i 's/memory_limit = .*/memory_limit = 768M/' /etc/php/php.ini \
+  && sed -i 's/post_max_size = .*/post_max_size = 50M/' /etc/php/php.ini \
+  && echo 'date.timezone = "Europe/Bucharest"' >> /etc/php/php.ini \
+  && sed -i '/^user/c \user = nginx' /etc/php/php-fpm.conf \
+  && sed -i '/^group/c \group = nginx' /etc/php/php-fpm.conf \
+  && sed -i 's/^listen.allowed_clients/;listen.allowed_clients/' /etc/php/php-fpm.conf
 
-ENV HTTPD_PREFIX /usr/local/apache2
-ENV PATH $PATH:$HTTPD_PREFIX/bin
-RUN mkdir -p "$HTTPD_PREFIX" \
-	&& chown www-data:www-data "$HTTPD_PREFIX"
-WORKDIR $HTTPD_PREFIX
+ENV TERM dumb
 
-# see https://httpd.apache.org/download.cgi#verify
-ENV GPG_KEY A93D62ECC3C8EA12DB220EC934EA76E6791485A8
-ENV HTTPD_VERSION 2.4.18
-ENV HTTPD_BZ2_URL https://www.apache.org/dist/httpd/httpd-$HTTPD_VERSION.tar.bz2
 
-# see https://httpd.apache.org/docs/2.4/install.html#requirements
-RUN set -x \
-&& echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-&& apk update \
-&& apk add --update tzdata \
-&& cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-&& echo "${TIMEZONE}" > /etc/timezone \
-	&& apk add --no-cache --update --virtual .build-deps \
-    php7-gd \
-    php7-opcache \
-    php7-pdo \
-    php7-pdo_mysql \
-    php7-pdo_pgsql \
-    php7-zip \
-		apr-dev \
-		apr-util-dev \
-		curl \
-		gcc \
-		gnupg \
-		libc-dev \
-		make \
-		openssl-dev \
-		pcre-dev \
-	&& curl -fSL "$HTTPD_BZ2_URL" -o httpd.tar.bz2 \
-	&& curl -fSL "$HTTPD_BZ2_URL.asc" -o httpd.tar.bz2.asc \
-# see https://httpd.apache.org/download.cgi#verify
-	&& export GNUPGHOME="$(mktemp -d)" \
-	&& gpg --keyserver ha.pool.sks-keyservers.net --recv-keys A93D62ECC3C8EA12DB220EC934EA76E6791485A8 \
-	&& gpg --batch --verify httpd.tar.bz2.asc httpd.tar.bz2 \
-	&& rm -r "$GNUPGHOME" httpd.tar.bz2.asc \
-	&& mkdir -p src \
-	&& tar -jxvf httpd.tar.bz2 -C src \
-	&& rm httpd.tar.bz2 \
-	&& cd src/httpd-$HTTPD_VERSION \
-	&& ./configure --enable-so --enable-ssl --prefix=$HTTPD_PREFIX --enable-mods-shared=most \
-	&& make -j"$(getconf _NPROCESSORS_ONLN)" \
-	&& make install \
-	&& cd ../../ \
-	&& rm -r src/httpd-$HTTPD_VERSION \
-	&& sed -ri ' \
-		s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \
-		s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
-		' /usr/local/apache2/conf/httpd.conf \
-	&& runDeps="$( \
-		scanelf --needed --nobanner --recursive /usr/local \
-			| awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
-			| sort -u \
-			| xargs -r apk info --installed \
-			| sort -u \
-	)" \
-  && sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.ini \
-  && sed -i "s|;*memory_limit =.*|memory_limit = ${PHP_MEMORY_LIMIT}|i" /etc/php7/php.ini \
-  && sed -i "s|;*upload_max_filesize =.*|upload_max_filesize = ${MAX_UPLOAD}|i" /etc/php7/php.ini \
-  && sed -i "s|;*max_file_uploads =.*|max_file_uploads = ${PHP_MAX_FILE_UPLOAD}|i" /etc/php7/php.ini \
-  && sed -i "s|;*post_max_size =.*|post_max_size = ${PHP_MAX_POST}|i" /etc/php7/php.ini \
-  && sed -i "s|;*cgi.fix_pathinfo=.*|cgi.fix_pathinfo= 0|i" /etc/php7/php.ini \
-	&& apk add --virtual .httpd-rundeps $runDeps \
-		apr-dev \
-		apr-util-dev \
-	&& apk del .build-deps
+COPY files/default.conf /etc/nginx/conf.d/
+COPY files/nginx.conf /etc/nginx/nginx.conf
+COPY files/supervisord.conf /etc/supervisord.conf
 
-COPY httpd-foreground /usr/local/bin/
-
-RUN apk del tzdata \
-  && rm -rf /var/cache/apk/*
+EXPOSE 80 443
+CMD ["supervisord"]
