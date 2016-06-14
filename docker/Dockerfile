@@ -39,5 +39,5 @@ COPY files/default.conf /etc/nginx/conf.d/
 COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/supervisord.conf /etc/supervisord.conf
 
-# EXPOSE 80 443
-# CMD ["supervisord"]
+EXPOSE 80 443
+CMD ["supervisord"]

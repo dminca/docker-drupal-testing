@@ -5,11 +5,9 @@ web:
   build: ./docker
 >>>>>>> WIP enable rewrite_module
   ports:
-    - "84:84"
-    - "85:85"
+    - "80:80"
     - "443:443"
   working_dir: /var/www/html
-  command: supervisord
   # links:
   #   - psql
     # - mysql

@@ -71,6 +71,8 @@ Feel free to fork and contribute to this code. :)
 * [Docker inspect template magic][14]
 * [Official MySQL Docker image][15]
 * [Alpine httpd Dockerfile by ncopa][16]
+* [russmckendrick Alpine PHP Dockerfile][17]
+* [removing orphans from docker-compose][18]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -94,3 +96,5 @@ Made with :heart: for [drupal][7] developers.
 [14]: http://container-solutions.com/docker-inspect-template-magic/
 [15]: https://hub.docker.com/_/mysql/
 [16]: https://github.com/ncopa/httpd/blob/d22ddf0c374fa749f683845342d258678895432a/2.4/alpine/Dockerfile
+[17]: https://github.com/russmckendrick/docker/blob/master/nginx-php/Dockerfile
+[18]: https://github.com/docker/notary/commit/de2c51d43b777322b5e84f2b21775bf43a6ec80f#diff-205dd7b00bc716e0cd04f1c29e903222R10
