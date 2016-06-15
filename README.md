@@ -18,7 +18,7 @@ make
 ```bash
 make up
 ```
-:boom: And that's it, you got yourself a fully-functional Drupal website on 
+:boom: And that's it, you got yourself a fully-functional Drupal website on
 localhost without wasting time to install _Apache + PHP + Drupal_ on your machine.
 
 ## Credentials
@@ -73,6 +73,9 @@ Feel free to fork and contribute to this code. :)
 * [Alpine httpd Dockerfile by ncopa][16]
 * [russmckendrick Alpine PHP Dockerfile][17]
 * [removing orphans from docker-compose][18]
+* [Alpine on Docker gold mine][19]
+* [PHP FPM configuration from official PHP site][20]
+* [fix NGINX emerg bind to 80 failed Error][21]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -98,3 +101,6 @@ Made with :heart: for [drupal][7] developers.
 [16]: https://github.com/ncopa/httpd/blob/d22ddf0c374fa749f683845342d258678895432a/2.4/alpine/Dockerfile
 [17]: https://github.com/russmckendrick/docker/blob/master/nginx-php/Dockerfile
 [18]: https://github.com/docker/notary/commit/de2c51d43b777322b5e84f2b21775bf43a6ec80f#diff-205dd7b00bc716e0cd04f1c29e903222R10
+[19]: https://github.com/russmckendrick/docker
+[20]: http://php.net/manual/ro/install.fpm.php
+[21]: https://chrisjean.com/fix-nginx-emerg-bind-to-80-failed-98-address-already-in-use/

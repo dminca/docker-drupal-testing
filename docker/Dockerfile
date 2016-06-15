@@ -11,6 +11,9 @@ RUN set -x \
     nginx \
     php7 \
     php7-fpm \
+    php7-ctype \
+    php7-session \
+    php7-dom \
     php7-zlib \
     php7-mcrypt \
     php7-openssl \
