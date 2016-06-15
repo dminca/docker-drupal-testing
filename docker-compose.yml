@@ -7,8 +7,10 @@ web:
   ports:
     - "80:80"
     - "443:443"
-  # links:
-  #   - psql
+  volumes: 
+    - ./app:/var/www/html
+  links:
+    - psql
     # - mysql
 
 # mysql:
@@ -22,11 +24,11 @@ web:
 #   ports:
 #     - "3306:3306"
 
-# psql:
-#   image: postgres:9.5
-#   environment:
-#     - POSTGRES_PASSWORD=drupal
-#     - POSTGRES_USER=drupal
-#     - POSTGRES_DB=drupal
-#   # ports:
-#   #   - "5432:5432"
+psql:
+  image: postgres:9.5
+  environment:
+    - POSTGRES_PASSWORD=drupal
+    - POSTGRES_USER=drupal
+    - POSTGRES_DB=drupal
+  # ports:
+  #   - "5432:5432"

@@ -3,6 +3,7 @@ PROJECT_NAME = dockerizeddrupal
 DRUPAL_VERSION = 8.1.2
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
+SERVER_USER = nginx
 
 .PHONY: build-drupal build up down restart clean-containers clean-images clean test
 
@@ -40,9 +41,9 @@ build-drupal:
 	chmod 755 $(DRUPAL_SITES)
 	mkdir $(DRUPAL_SITES)/files
 	chmod 755 $(DRUPAL_SITES)/files
-	sudo chown -R www-data:www-data app/sites
-	sudo chown www-data:www-data app/themes
-	sudo chown www-data:www-data app/modules
+	sudo chown -R $(SERVER_USER):$(SERVER_USER) app/sites
+	sudo chown $(SERVER_USER):$(SERVER_USER) app/themes
+	sudo chown $(SERVER_USER):$(SERVER_USER) app/modules
 
 test: build-drupal build up restart down clean
 
