@@ -39,6 +39,7 @@ build-drupal:
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
 	mkdir $(DRUPAL_SITES)/files
 	chmod 777 $(DRUPAL_SITES)/files
+	chmod 777 $(DRUPAL_SITES)/settings.php
 
 test: build-drupal build up restart down clean
 
