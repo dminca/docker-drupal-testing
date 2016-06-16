@@ -5,7 +5,6 @@ MAINTAINER Minca Daniel Andrei <mandrei17@gmail.com>
 RUN set -x \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
   && apk update && apk upgrade \
-  && apk add ca-certificates bash \
   && apk add --update \
     supervisor \
     nginx \
