@@ -25,7 +25,7 @@ web:
 #     - "3306:3306"
 
 psql:
-  image: postgres:9.5
+  image: kiasaki/alpine-postgres
   environment:
     - POSTGRES_PASSWORD=drupal
     - POSTGRES_USER=drupal

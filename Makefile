@@ -37,13 +37,8 @@ build-drupal:
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 	cp $(DRUPAL_SITES)/default.settings.php $(DRUPAL_SITES)/settings.php
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
-	chmod 644 $(DRUPAL_SITES)/settings.php $(DRUPAL_SITES)/services.yml
-	chmod 755 $(DRUPAL_SITES)
 	mkdir $(DRUPAL_SITES)/files
-	chmod 755 $(DRUPAL_SITES)/files
-	sudo chown -R $(SERVER_USER):$(SERVER_USER) app/sites
-	sudo chown $(SERVER_USER):$(SERVER_USER) app/themes
-	sudo chown $(SERVER_USER):$(SERVER_USER) app/modules
+	chmod 777 $(DRUPAL_SITES)/files
 
 test: build-drupal build up restart down clean
 
