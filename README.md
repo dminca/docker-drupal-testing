@@ -76,6 +76,7 @@ Feel free to fork and contribute to this code. :)
 * [Alpine on Docker gold mine][19]
 * [PHP FPM configuration from official PHP site][20]
 * [fix NGINX emerg bind to 80 failed Error][21]
+* [finding supported packages on Alpine Linux Packages][22]
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
@@ -104,3 +105,4 @@ Made with :heart: for [drupal][7] developers.
 [19]: https://github.com/russmckendrick/docker
 [20]: http://php.net/manual/ro/install.fpm.php
 [21]: https://chrisjean.com/fix-nginx-emerg-bind-to-80-failed-98-address-already-in-use/
+[22]: https://pkgs.alpinelinux.org/packages
