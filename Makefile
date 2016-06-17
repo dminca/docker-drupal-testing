@@ -1,5 +1,5 @@
 SHELL = /bin/sh
-PROJECT_NAME = dockerizeddrupal
+PROJECT_NAME = $$(printf '%s\n' "${PWD##*/}") 
 DRUPAL_VERSION = 8.1.2
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
@@ -11,13 +11,13 @@ build:
 	docker-compose build
 
 up:
-	docker-compose up -d
+	docker-compose up
 
 down:
 	docker-compose down -v --remove-orphans
 
 in:
-	docker exec -ti $$(docker ps -qf name=$(PROJECT_NAME)_web_1) /bin/bash
+	docker exec -ti $$(docker ps -qf name=$$(PROJECT_NAME)_web_1) /bin/ash
 
 restart:
 	docker-compose restart

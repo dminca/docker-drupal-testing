@@ -26,7 +26,6 @@ RUN set -x \
   && rm -rf /var/cache/apk/* \
   && mkdir /tmp/nginx \
   && mkdir -p /var/www/html \
-  && echo "<?php phpinfo(); ?>" > /var/www/html/index.php \
   && chown -R nginx:nginx /var/www/html \
   && sed -i 's/memory_limit = .*/memory_limit = 768M/' /etc/php7/php.ini \
   && sed -i 's/post_max_size = .*/post_max_size = 50M/' /etc/php7/php.ini \
