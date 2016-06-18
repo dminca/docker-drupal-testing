@@ -5,7 +5,10 @@ DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
 SERVER_USER = nginx
 
-.PHONY: build-drupal build up down restart clean-containers clean-images clean test
+.PHONY: build-drupal build start-detached up down restart clean-containers clean-images clean test
+
+start-detached:
+	docker-compose up -d
 
 build:
 	docker-compose build
@@ -41,6 +44,6 @@ build-drupal:
 	chmod 777 $(DRUPAL_SITES)/files
 	chmod 777 $(DRUPAL_SITES)/settings.php
 
-test: build-drupal build up restart down clean
+test: build-drupal build start-detached restart down clean
 
 default: build
