@@ -21,6 +21,8 @@ RUN set -x \
     php7-opcache \
     php7-pdo \
     php7-pdo_pgsql \
+    php7-curl \
+    php7-ftp \
   && rm -rf /var/cache/apk/* \
   && mkdir /tmp/nginx \
   && mkdir -p /var/www/html \
