@@ -26,9 +26,7 @@ The following credentials are used along the installation:
 * **DB_USERNAME:** `drupal`
 * **DB_PASSWORD:** `drupal`
 * **DB_DATABASE:** `drupal`
-* **DB_HOSTNAME:** `dockerizeddrupal_mysql_1` or `dockerizeddrupal_psql_1`
-
-Choose the proper `DB_HOSTNAME` depending on which Database you use: MySQL or PostgreSQL.
+* **DB_HOSTNAME:** `drupaldocker_psql_1`
 
 #### Note for DB_HOSTNAME
 In case there are problems with the host of the db, do `docker ps` and copy the NAME of
