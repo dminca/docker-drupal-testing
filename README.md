@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dminca/dockerized-drupal.svg?branch=master)](https://travis-ci.org/dminca/dockerized-drupal) [![Join the chat at https://gitter.im/dminca/dockerized-drupal](https://badges.gitter.im/dminca/dockerized-drupal.svg)](https://gitter.im/dminca/dockerized-drupal) [![Join the chat on IRC #drupal-contribute](https://img.shields.io/badge/chat-IRC-3ec8ac.svg)](https://www.drupal.org/irc) [![Join the chat on Telegram Messenger](https://img.shields.io/badge/chat-Telegram-1E95D3.svg)](https://telegram.me/dminca)
+[![Build Status](https://travis-ci.org/dminca/drupal-docker.svg?branch=master)](https://travis-ci.org/dminca/drupal-docker) [![Join the chat at https://gitter.im/dminca/dockerized-drupal](https://badges.gitter.im/dminca/dockerized-drupal.svg)](https://gitter.im/dminca/dockerized-drupal) [![Join the chat on IRC #drupal-contribute](https://img.shields.io/badge/chat-on%20IRC-89c4ff.svg)](https://www.drupal.org/irc) [![Join the chat on Telegram Messenger](https://img.shields.io/badge/chat-Telegram-1E95D3.svg)](https://telegram.me/dminca)
 # Drupal dev env based on Docker
 > Run Drupal **8.1.1** from Docker containers
 
