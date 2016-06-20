@@ -5,7 +5,7 @@ DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
 SERVER_USER = nginx
 
-.PHONY: build-drupal build start-detached up down restart clean-containers clean-images clean test
+.PHONY: build-drupal build start-detached up down wipe restart clean-containers clean-images clean test
 
 start-detached:
 	docker-compose up -d
@@ -17,6 +17,9 @@ up:
 	docker-compose up
 
 down:
+	docker-compose stop
+
+wipe:
 	docker-compose down -v --remove-orphans
 
 in:
