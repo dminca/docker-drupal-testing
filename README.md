@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dminca/dockerized-drupal.svg?branch=master)](https://travis-ci.org/dminca/dockerized-drupal)
+[![Build Status](https://travis-ci.org/dminca/dockerized-drupal.svg?branch=master)](https://travis-ci.org/dminca/dockerized-drupal) [![Join the chat at https://gitter.im/dminca/dockerized-drupal](https://badges.gitter.im/dminca/dockerized-drupal.svg)](https://gitter.im/dminca/dockerized-drupal) [![Join the chat on IRC #drupal-contribute](https://img.shields.io/badge/chat-IRC-3ec8ac.svg)](irc://irc.freenode.net/drupal-contribute) [![Join the chat on Telegram Messenger](https://img.shields.io/badge/chat-Telegram-1E95D3.svg)](https://telegram.me/dminca)
 # Drupal dev env based on Docker
 > Run Drupal **8.1.1** from Docker containers
 
@@ -55,56 +55,13 @@ Feel free to fork and contribute to this code. :)
 5. Create new Pull Request
 
 ### Project references:
-> Sources that guided me throughout the development of this project
-* [PHP + Apache official docker image][1]
-* [Docker compose official docs][2]
-* [Dockerfile official docs][3]
-* [Drupal system requirements - to be sure what to install][4]
-* [Apache and PHP on Docker - good medium article used for inspiration][5]
-* [Drupal installation step by step][6]
-* [Mastering Git submodules - medium][8]
-* [Drupal 7 with apache Dockerfile][9]
-* [php 7.0 - apache Dockerfile][10]
-* [OPCache problem solved][11]
-* [Enabling Apache modules in Dockerfile][12]
-* [Apache Dockerfile for inspiration][13]
-* [Docker inspect template magic][14]
-* [Official MySQL Docker image][15]
-* [Alpine httpd Dockerfile by ncopa][16]
-* [russmckendrick Alpine PHP Dockerfile][17]
-* [removing orphans from docker-compose][18]
-* [Alpine on Docker gold mine][19]
-* [PHP FPM configuration from official PHP site][20]
-* [fix NGINX emerg bind to 80 failed Error][21]
-* [finding supported packages on Alpine Linux Packages][22]
-* [PostgreSQL docker image based on Alpine Linux][23]
+> Sources that guided me throughout the development of this project can be found in the [wiki section][1] of the project.
 
 ### License
 Licensed under the great [GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
 
-Made with :heart: for [drupal][7] developers.
+Made with :heart: for [drupal][2] developers.
 
 
-[1]: https://hub.docker.com/_/php/
-[2]: https://docs.docker.com/compose/compose-file
-[3]: https://docs.docker.com/engine/reference/builder
-[4]: https://www.drupal.org/requirements
-[5]: https://medium.com/dev-tricks/apache-and-php-on-docker-44faef716150#.l15osgxxs
-[6]: https://www.drupal.org/documentation/install/download
-[7]: https://www.drupal.org/
-[8]: https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.p8ypfaftj
-[9]: https://github.com/docker-library/drupal/blob/master/7/apache/Dockerfile
-[10]: https://github.com/docker-library/php/blob/master/7.0/apache/Dockerfile
-[11]: https://hub.docker.com/r/sinso/phpfpm-flow/~/dockerfile/
-[12]: http://khornberg.github.io/articles/enabling-apache-modules-indockerfile-php/
-[13]: https://github.com/voduytuan/docker-apache-php/blob/master/Dockerfile
-[14]: http://container-solutions.com/docker-inspect-template-magic/
-[15]: https://hub.docker.com/_/mysql/
-[16]: https://github.com/ncopa/httpd/blob/d22ddf0c374fa749f683845342d258678895432a/2.4/alpine/Dockerfile
-[17]: https://github.com/russmckendrick/docker/blob/master/nginx-php/Dockerfile
-[18]: https://github.com/docker/notary/commit/de2c51d43b777322b5e84f2b21775bf43a6ec80f#diff-205dd7b00bc716e0cd04f1c29e903222R10
-[19]: https://github.com/russmckendrick/docker
-[20]: http://php.net/manual/ro/install.fpm.php
-[21]: https://chrisjean.com/fix-nginx-emerg-bind-to-80-failed-98-address-already-in-use/
-[22]: https://pkgs.alpinelinux.org/packages
-[23]: https://hub.docker.com/r/kiasaki/alpine-postgres/
+[1]: https://github.com/dminca/dockerized-drupal/wiki/References
+[2]: https://www.drupal.org/
