@@ -3,7 +3,6 @@ PROJECT_NAME = $$(printf '%s\n' "${PWD##*/}")
 DRUPAL_VERSION = 8.1.3
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
-SERVER_USER = nginx
 
 .PHONY: build-drupal build start-detached up down wipe restart clean-containers clean-images clean test
 
@@ -43,9 +42,11 @@ build-drupal:
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 	cp $(DRUPAL_SITES)/default.settings.php $(DRUPAL_SITES)/settings.php
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
+	chmod 666 $(DRUPAL_SITES)/settings.php $(DRUPAL_SITES)/services.yml
 	mkdir $(DRUPAL_SITES)/files
 	chmod 777 $(DRUPAL_SITES)/files
-	chmod 777 $(DRUPAL_SITES)/settings.php
+	# set permissions for the app folder
+	./conf.sh perms
 
 test: build-drupal build start-detached restart down clean
 
