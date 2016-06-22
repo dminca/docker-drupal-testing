@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 PROJECT_NAME = $$(printf '%s\n' "${PWD##*/}") 
-DRUPAL_VERSION = 8.1.2
+DRUPAL_VERSION = 8.1.3
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
 SERVER_USER = nginx
