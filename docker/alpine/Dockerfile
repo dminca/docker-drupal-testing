@@ -20,7 +20,6 @@ RUN set -x \
     php7-gd \
     php7-opcache \
     php7-pdo \
-    php7-pdo_mysql \
     php7-pdo_pgsql \
   && rm -rf /var/cache/apk/* \
   && mkdir /tmp/nginx \
