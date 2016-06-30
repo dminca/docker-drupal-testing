@@ -15,5 +15,7 @@ psql:
     - POSTGRES_PASSWORD=drupal
     - POSTGRES_USER=drupal
     - POSTGRES_DB=drupal
+  volumes:
+    - ./db:/var/lib/postgresql/data
   # ports:
   #   - "5432:5432"

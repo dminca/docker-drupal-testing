@@ -28,7 +28,7 @@ restart:
 	docker-compose restart
 
 clean: clean-containers clean-images
-	sudo rm -rf app
+	sudo rm -rf app db
 
 clean-containers:
 	docker rm -v $$(docker ps -aq -f status=exited)
@@ -44,6 +44,7 @@ build-drupal:
 	cp $(DRUPAL_SITES)/default.services.yml $(DRUPAL_SITES)/services.yml
 	chmod 666 $(DRUPAL_SITES)/settings.php $(DRUPAL_SITES)/services.yml
 	mkdir $(DRUPAL_SITES)/files
+	mkdir db
 	chmod 777 $(DRUPAL_SITES)/files
 	# set permissions for the app folder
 	./conf.sh perms
