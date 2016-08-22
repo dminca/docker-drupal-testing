@@ -1,5 +1,5 @@
 web:
-  image: completit/dockerized-drupal:alpine
+  image: dminca/drupal-alpine
   ports:
     - "80:80"
     - "443:443"
