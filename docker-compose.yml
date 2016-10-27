@@ -1,21 +1,24 @@
-web:
-  image: dminca/drupal-alpine
-  ports:
-    - "80:80"
-    - "443:443"
-  volumes:
-    - ./app:/var/www/html
-  working_dir: /var/www/html
-  links:
-    - psql
+version: "2"
 
-psql:
-  image: kiasaki/alpine-postgres
-  environment:
-    - POSTGRES_PASSWORD=drupal
-    - POSTGRES_USER=drupal
-    - POSTGRES_DB=drupal
-  volumes:
-    - ./db:/var/lib/postgresql/data
-  # ports:
-  #   - "5432:5432"
+services:
+  web:
+    image: dminca/drupal-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./app:/var/www/html
+    working_dir: /var/www/html
+    links:
+      - psql
+
+  psql:
+    image: kiasaki/alpine-postgres
+    environment:
+      - POSTGRES_PASSWORD=drupal
+      - POSTGRES_USER=drupal
+      - POSTGRES_DB=drupal
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    # ports:
+    #   - "5432:5432"
