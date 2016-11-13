@@ -2,7 +2,7 @@ version: "2"
 
 services:
   web:
-    image: dminca/drupal-alpine
+    image: wizdevops/drupal:8-alpine
     ports:
       - "80:80"
       - "443:443"
