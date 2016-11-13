@@ -3,6 +3,7 @@ PROJECT_NAME = $$(printf '%s\n' "${PWD##*/}")
 DRUPAL_VERSION = 8.2.2
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
+DRUPAL_SHA = b83ed429dc25ee27325d4aa6ead9d97cd79af5a3ba3390ff21b2951dbaa94157
 
 .PHONY: build-drupal build start-detached up down wipe restart clean-containers clean-images clean test
 
@@ -38,6 +39,7 @@ clean-images: down
 
 build-drupal:
 	wget http://ftp.drupal.org/files/projects/drupal-$(DRUPAL_VERSION).tar.gz -P app
+	cd app; echo "$(DRUPAL_SRCNAME).tar.gz  $(DRUPAL_SHA)" | sha256sum -c - | grep "OK";cd -
 	tar -xzf app/$(DRUPAL_SRCNAME).tar.gz -C app --strip-components 1
 	rm -rf app/$(DRUPAL_SRCNAME).tar.gz
 	cp $(DRUPAL_SITES)/default.settings.php $(DRUPAL_SITES)/settings.php
