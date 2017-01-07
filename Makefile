@@ -1,9 +1,9 @@
 SHELL = /bin/sh
 PROJECT_NAME = $$(printf '%s\n' "${PWD##*/}") 
-DRUPAL_VERSION = 8.2.2
+DRUPAL_VERSION = 8.2.5
 DRUPAL_SRCNAME = drupal-$(DRUPAL_VERSION)
 DRUPAL_SITES = app/sites/default
-DRUPAL_SHA = b83ed429dc25ee27325d4aa6ead9d97cd79af5a3ba3390ff21b2951dbaa94157
+DRUPAL_SHA = 41c1ba9573e4974494a5ce0888366638132e798e2b71ea7130b197f88f22a5fe
 
 .PHONY: build-drupal build start-detached up down wipe restart clean-containers clean-images clean test
 
