@@ -2,9 +2,6 @@
 # Drupal dev env based on Docker
 > Run Drupal **8.x.x** from Docker containers
 
-- :new: [Drupal Console][3] integrated
-- :new: Persistent PostgreSQL container
-
 ## Running the project
 
 * First, Drupal must be pulled from the web and configured
