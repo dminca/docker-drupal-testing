@@ -13,7 +13,7 @@ services:
       - psql
 
   psql:
-    image: kiasaki/alpine-postgres
+    image: postgres:9.5-alpine
     environment:
       - POSTGRES_PASSWORD=drupal
       - POSTGRES_USER=drupal
